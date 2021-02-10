@@ -1,5 +1,5 @@
 const express = require('express') //On importe express
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser') //Package pour transformer le corps des requêtes 
 const mongoose = require('mongoose')
 const path = require('path')
 const helmet = require('helmet')
@@ -10,7 +10,7 @@ const userRoutes = require('./routes/user')
 
 dotenv.config() //Elle initie dotenv and rend les variables disponibles pour la connexion MongoDb
 
-//Connexion à la base de données
+//Connexion à la base de données MongoDb Atlas
 mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.jyz8d.mongodb.net/SoPekocko?retryWrites=true&w=majority`, {
         useNewUrlParser: true,
         useUnifiedTopology: true
@@ -30,11 +30,11 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use(bodyParser.json())
-app.use('/images', express.static(path.join(__dirname, 'images')))
+app.use(bodyParser.json()) //On met les réponses des requêtes HTTP en format JSON exploitable
+app.use('/images', express.static(path.join(__dirname, 'images'))) //Serve un dossier static qui nous permet d'accèder aux images ajoutées
 
-app.use('/api/auth', userRoutes)
-app.use('/api/sauces', sauceRoutes)
+app.use('/api/auth', userRoutes) //Pour la route on utilise le routeur passé en deuxième argument
+app.use('/api/sauces', sauceRoutes) //Pour la route on utilise le routeur passé en deuxième argument
 
 
 module.exports = app
