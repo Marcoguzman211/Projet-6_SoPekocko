@@ -15,8 +15,8 @@ Liens vers le repository publique sur GitHub (Backend) :
 https://github.com/Marcoguzman211/Projet-6_SoPekocko
 
 -	Ensuite, vous devez créer un fichier .env (sans nom de fichier) et ajouter à l’intérieur :
-DB_USERNAME = <votre user de base de données> 
-DB_PASSWORD = <votre mot de passe>
+DB_USERNAME = {votre user de base de données} 
+DB_PASSWORD = {votre mot de passe}
 
 -	À partir du dossier où vous avez cloné le dépôt, sur le terminal exécutez : 
 npm install 
